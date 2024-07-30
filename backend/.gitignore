@@ -1,0 +1,22 @@
+# environment variables
+.env
+
+# python cache files
+__pycache__
+*.py[cod]
+
+# system files
+.DS_Store
+*.swp
+
+# logs
+*.log
+
+# virtual environment
+venv/
+env/
+.venv/
+
+# common editor directories/files
+.idea/
+.vscode/

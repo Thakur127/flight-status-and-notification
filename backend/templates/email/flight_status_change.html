@@ -1,0 +1,53 @@
+<!-- templates/email/flight_status_change.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Dear Customer,</p>
+    <p>{{ msg }}</p>
+    <p>Below are full details attached:</p>
+    <table>
+      <tr>
+        <th>Flight ID</th>
+        <th>Airline</th>
+        <th>Status</th>
+        <th>Departure Gate</th>
+        <th>Arrival Gate</th>
+        <th>Scheduled Departure</th>
+        <th>Scheduled Arrival</th>
+        <th>Actual Departure</th>
+        <th>Actual Arrival</th>
+      </tr>
+      <tr>
+        <td>{{ flight.flight_id }}</td>
+        <td>{{ flight.airline }}</td>
+        <td>{{ flight.status }}</td>
+        <td>{{ flight.departure_gate }}</td>
+        <td>{{ flight.arrival_gate }}</td>
+        <td>{{ flight.scheduled_departure }}</td>
+        <td>{{ flight.scheduled_arrival }}</td>
+        <td>{{ flight.actual_departure }}</td>
+        <td>{{ flight.actual_arrival }}</td>
+      </tr>
+    </table>
+    <p>Thank you for choosing our service.</p>
+  </body>
+</html>
