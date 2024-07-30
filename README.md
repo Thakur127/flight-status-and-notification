@@ -5,6 +5,7 @@ I have created a admin dashboard to simulate the status of Flights. Once the adm
 ### Realtime updates
 
 Since sending realtime updates of flight is one way connection, I used [`Server-Sent Events`](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) to send current status of flight.
+
 **Advantage**
 
 - Less complex to implement
@@ -32,7 +33,7 @@ For frontend I used [`Next.js`](https://nextjs.org/) - The React Framework. To c
 
 ### Database
 
-for database, I used `PostgreSQL` and for Object Relation Mapping used a Python SQL Toolkit called [`SQLAlchemy`](https://www.sqlalchemy.org/), It provides a full suite of well known enterprise-level persistence patterns, designed for efficient and high-performing database access, adapted into a simple and Pythonic domain language. And for database migration used, [`alembic`](https://alembic.sqlalchemy.org/en/latest/) is a lightweight database migration tool for usage with the SQLAlchemy Database Toolkit for Python.
+For database, I used `PostgreSQL` and for Object Relation Mapping used a Python SQL Toolkit called [`SQLAlchemy`](https://www.sqlalchemy.org/), It provides a full suite of well known enterprise-level persistence patterns, designed for efficient and high-performing database access, adapted into a simple and Pythonic domain language. And for database migration used, [`alembic`](https://alembic.sqlalchemy.org/en/latest/) is a lightweight database migration tool for usage with the SQLAlchemy Database Toolkit for Python.
 
 # 🐱‍💻 How to use code 🐱‍💻
 
@@ -185,6 +186,7 @@ Once you press `Subscribe for notification`, a dialogs pops up
 ![subscription-dialog](./assets/subscribe-dialog.png)
 
 Now put your email in input box and press Subscribe, and you will get an email like this
+
 ![subscription-email](./assets/subscription-email.png)
 
 **Change Flight Status** 🐱‍🏍
