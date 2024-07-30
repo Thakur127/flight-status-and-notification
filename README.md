@@ -19,7 +19,7 @@ To communicate with `RabbitMq` I used the python's library called [`dramatiq`](h
 
 ### Backend
 
-To create APIs, used Python's Framework called [`FASTApi`](https://fastapi.tiangolo.com/). I chose it because of it great featuers:
+To create APIs, used Python's Framework called [`FastAPI`](https://fastapi.tiangolo.com/). I chose it because of it great featuers:
 
 - Easy to use
 - Fast to code
