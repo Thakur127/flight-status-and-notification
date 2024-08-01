@@ -5,8 +5,8 @@ from config.database import engine, Base
 from flight import routes as flight_routes
 from notification import routes as notification_routes
 
-
 from _dramatiq.dramatiq_config import *
+
 
 # Create table in database
 Base.metadata.create_all(bind=engine)
@@ -28,9 +28,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Run the application
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)

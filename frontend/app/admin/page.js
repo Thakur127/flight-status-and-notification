@@ -1,6 +1,5 @@
 import Dashboard from "@/components/Dashboard/Dashboard";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import Head from "next/head";
 
 export const metadata = {
   title: "Flight status - Admin",

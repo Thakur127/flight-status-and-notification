@@ -1,7 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import axios from "axios";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -10,6 +9,7 @@ import {
   parseDateToUTC,
   convertToUTC,
 } from "@/lib/datetime";
+import { axiosInstance } from "@/lib/axios";
 
 const UpdateFlightForm = ({ flight, className, onClose }) => {
   const [isUpdating, setIsUpdating] = useState(false);
@@ -71,8 +71,8 @@ const UpdateFlightForm = ({ flight, className, onClose }) => {
         : null,
     };
     try {
-      const res = await axios.put(
-        `http://localhost:8000/api/flights/update/${data.flight_id}`,
+      const res = await axiosInstance.put(
+        `/flights/update/${data.flight_id}`,
         correctData
       );
       if (onClose) onClose();

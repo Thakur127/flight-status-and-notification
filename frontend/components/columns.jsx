@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowUpDown } from "lucide-react";
+import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import FlightStatusDropdownMenuOption from "./FlightStatusDropdownMenuOption";
 import { formatDateLocalDisplay } from "@/lib/datetime";
 
 export const columns = [
@@ -22,18 +21,22 @@ export const columns = [
       let text_color = "";
       switch (value.toLowerCase()) {
         case "on time":
-          text_color = "text-green-500";
+          text_color = "text-green-700 bg-green-200";
           break;
         case "delayed":
-          text_color = "text-yellow-500";
+          text_color = "text-yellow-700 bg-yellow-200";
           break;
         case "cancelled":
-          text_color = "text-red-500";
+          text_color = "text-red-700 bg-red-200";
           break;
         default:
           text_color = "";
       }
-      return <span className={`${text_color}`}>{value}</span>;
+      return (
+        <span className={`${text_color} py-0.5 px-1 rounded-md text-nowrap`}>
+          {value}
+        </span>
+      );
     },
   },
   {
@@ -54,7 +57,13 @@ export const columns = [
           className="font-semibold"
         >
           Schedule Departure
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {column.getIsSorted() === "asc" ? (
+            <ChevronUp className="ml-2 h-4 w-4" />
+          ) : column.getIsSorted() === "desc" ? (
+            <ChevronDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ChevronsUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       );
     },
@@ -75,7 +84,13 @@ export const columns = [
           className="font-semibold"
         >
           Schedule Arrival
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          {column.getIsSorted() === "asc" ? (
+            <ChevronUp className="ml-2 h-4 w-4" />
+          ) : column.getIsSorted() === "desc" ? (
+            <ChevronDown className="ml-2 h-4 w-4" />
+          ) : (
+            <ChevronsUpDown className="ml-2 h-4 w-4" />
+          )}
         </Button>
       );
     },
@@ -91,7 +106,7 @@ export const columns = [
     accessorKey: "actual_departure",
     cell: (info) => {
       const value = info.getValue();
-      if (!value) return;
+      if (!value) return <span>NA</span>;
       const date = new Date(value);
       return <span>{formatDateLocalDisplay(date)}</span>;
     },
@@ -101,17 +116,9 @@ export const columns = [
     accessorKey: "actual_arrival",
     cell: (info) => {
       const value = info.getValue();
-      if (!value) return;
+      if (!value) return <span>NA</span>;
       const date = new Date(value);
       return <span>{formatDateLocalDisplay(date)}</span>;
-    },
-  },
-  {
-    id: "actions",
-    cell: ({ row }) => {
-      const flight = row.original;
-
-      return <FlightStatusDropdownMenuOption flight={flight} />;
     },
   },
 ];

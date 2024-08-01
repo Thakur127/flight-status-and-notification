@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { columns } from "./columns";
-import DataTable from "../DataTable";
+// import { columns } from "./columns";
+import DataTable from "@/components/DataTable";
+import { columns } from "@/components/columns";
+import DropdownMenuOption from "./DropdownMenuOption";
 
 const Dashboard = () => {
   const [flights, setFlights] = useState([]);
@@ -39,9 +41,21 @@ const Dashboard = () => {
     };
   }, [flights]);
 
+  const updatedColumns = [
+    ...columns,
+    {
+      id: "actions",
+      cell: ({ row }) => {
+        const flight = row.original;
+
+        return <DropdownMenuOption flight={flight} />;
+      },
+    },
+  ];
+
   return (
     <div>
-      <DataTable data={flights} columns={columns} />
+      <DataTable data={flights} columns={updatedColumns} />
     </div>
   );
 };
